@@ -13,6 +13,10 @@
   </style>
 <body>
 <h1>登录页面：测试login logout</h1>
+perms: {{perms.conf.oprater_task}}<br/>
+perms: {{perms.conf.oprater_task2}}<br/>
+perms: {{perms.conf}}<br/>
+user: {{user}}
 <form method = 'post' enctype="multipart/form-data" name="myform">
 {% csrf_token %}
  <!--{{ form.as_ul }}-->                 
