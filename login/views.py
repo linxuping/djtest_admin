@@ -4,6 +4,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from login.models import User
 from django import forms
 from django.forms import ModelForm
+from django.template import Template,Context,RequestContext
 from django.views.decorators.csrf import csrf_exempt
 
 def hello(request):
@@ -38,7 +39,8 @@ def login(request):
                 return HttpResponseRedirect('/login/')
     else:
         uf = ContactForm()
-    return render_to_response('login.html',{'uf':uf})
+    #return render_to_response('login.html',{'uf':uf})
+    return render_to_response('login.html',{"uf":uf},context_instance=RequestContext(request))
 
 from django.contrib.auth import authenticate	
 from django.contrib.auth import login as adminlogin
@@ -72,4 +74,5 @@ def login1(request):
         uf = ContactForm()
 	  
 	  
-    return render_to_response('login1.html',{'uf':uf})
+    #return render_to_response('login1.html',{'uf':uf})
+    return render_to_response('login1.html',{"uf":uf},context_instance=RequestContext(request))
